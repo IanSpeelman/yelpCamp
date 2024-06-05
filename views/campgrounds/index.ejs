@@ -6,6 +6,10 @@
 		<title>Document</title>
 	</head>
 	<body>
+            <div>
+                  <a href="/campgrounds">All campground</a>
+                  <a href="/campgrounds/new">New campground</a>
+            </div>
 		<ul>
 			<% campgrounds.forEach(campground => { %>
 			<li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
