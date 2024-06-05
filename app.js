@@ -1,6 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
-const Campground = require("./models/campgrounds")
+const Campgrounds = require("./models/campgrounds")
 
 const app = express()
 const port = 3001;
@@ -14,9 +14,13 @@ app.get("/", (req,res) => {
       res.render("home")
 })
 app.get("/campgrounds", async (req,res) => {
-      const campgrounds = await Campground.find({})
+      const campgrounds = await Campgrounds.find({})
       res.render("campgrounds/index", { campgrounds })
 })
-
+app.get("/campgrounds/:id", async (req,res) => {
+      const {id} = req.params
+      const campground = await Campgrounds.findById(id)
+      res.render("campgrounds/show", {campground})
+})
 
 app.listen(port, () => console.log("server started"))
