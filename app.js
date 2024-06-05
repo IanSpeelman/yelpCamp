@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Campgrounds = require("./models/campgrounds");
+const methodOverride = require("method-override");
 
 const app = express();
 const port = 3001;
@@ -12,6 +13,7 @@ app.set("views", `${__dirname}/views`);
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
 	res.render("home");
@@ -27,12 +29,28 @@ app.post("/campgrounds", async (req, res) => {
 	const { title, location } = req.body.campground;
 	const newCampground = new Campgrounds({ title, location });
 	newCampground.save();
-      res.redirect(`/campgrounds/${newCampground._id}`)
+	res.redirect(`/campgrounds/${newCampground._id}`);
 });
 app.get("/campgrounds/:id", async (req, res) => {
 	const { id } = req.params;
 	const campground = await Campgrounds.findById(id);
 	res.render("campgrounds/show", { campground });
 });
+app.get("/campgrounds/:id/edit", async (req, res) => {
+	const { id } = req.params;
+	const campground = await Campgrounds.findById(id);
+	res.render("campgrounds/edit", { campground });
+});
+app.put("/campgrounds/:id", async (req, res) => {
+	const { id } = req.params;
+	const data = req.body.campground;
+	const campground = await Campgrounds.findByIdAndUpdate(id, { ...data });
+      res.redirect(`/campgrounds/${campground._id}`)
+});
+app.delete("/campgrounds/:id", async (req,res) => {
+      const {id} = req.params
+      await Campgrounds.findByIdAndDelete(id)
+      res.redirect("/campgrounds")
+})
 
 app.listen(port, () => console.log("server started"));
