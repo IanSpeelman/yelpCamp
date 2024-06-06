@@ -1,6 +1,22 @@
 <%- layout("./layout/boilerplate") %>
-		<ul>
-			<% campgrounds.forEach(campground => { %>
-			<li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
-			<% }) %>
-		</ul>
+<div class="row">
+	<% campgrounds.forEach(campground => { %>
+	<div class="col-4">
+		<img src="<%= campground.image %>" class="img-fluid" alt="" />
+	</div>
+	<div class="col-8 card">
+		<h1 class="card-title"><%= campground.title %></h1>
+		<div class="card-body">
+			<p><%= campground.description %></p>
+			<p class="small text-black-50"><%= campground.location %></p>
+			<p class="text-black-50 small">€<%= campground.price %></p>
+			<a
+				href="/campgrounds/<%= campground._id %>"
+				class="btn btn-primary"
+				role="button"
+				>view <%= campground.title %></a
+			>
+		</div>
+	</div>
+	<% }) %>
+</div>

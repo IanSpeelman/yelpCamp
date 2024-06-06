@@ -26,8 +26,7 @@ const seed = async () => {
 			title: `${randomTitle(descriptors)} ${randomTitle(descriptors)}`,
 			price: randomPrice().toFixed(2),
 			image: "http://source.unsplash.com/collection/483251",
-			description:
-				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti perferendis hic totam cupiditate, aperiam repudiandae nisi, exercitationem ipsam obcaecati vel vitae consectetur tenetur. Dolore voluptatibus doloribus, minima, sequi nihil sapiente architecto quos at, culpa porro voluptas adipisci voluptates? Nihil ullam minima, eos hic debitis deserunt expedita ipsa numquam nobis dignissimos dolor atque, rerum ipsum. Dolore laborum voluptas vel dolores eum quia officiis ipsa impedit iste cupiditate. Ut, ducimus dicta recusandae voluptates quibusdam inventore, veritatis, doloremque accusamus sed explicabo molestias in?",
+			description:"Nihil ullam minima, eos hic debitis deserunt expedita ipsa numquam nobis dignissimos dolor atque, rerum ipsum. Dolore laborum voluptas vel dolores eum quia officiis ipsa impedit iste cupiditate. Ut, ducimus dicta recusandae voluptates quibusdam inventore, veritatis, doloremque accusamus sed explicabo molestias in?",
 		});
 
 		await c.save();

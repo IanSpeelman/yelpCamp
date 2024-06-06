@@ -1,4 +1,25 @@
 <%- layout("./layout/boilerplate") %>
-      <a href="/campgrounds/<%= campground._id %>/edit">Edit campground</a>
-      <h1><%= campground.title %></h1>
-      <h2><%= campground.location %></h2>
+<div class="card mb-3">
+	<img
+		src="<%= campground.image %>"
+		class="card-img-top rounded mx-auto d-block mt-3"
+		alt="<%= campground.title %>"
+		style="width: 35%; max-height: 20em" />
+	<div class="card-body">
+		<h5 class="card-title"><%= campground.title %></h5>
+		<p class="card-text"><%= campground.description %></p>
+		<p class="card-text small text-black-50 d-inline">
+			<%= campground.location %>
+		</p>
+		<p class="card-text small ms-5 text-black-50 d-inline-block">
+			€<%= campground.price %>
+		</p>
+		<div>
+			<a
+				href="/campgrounds/<%= campground._id %>/edit"
+				class="btn btn-success"
+				>Edit/Delete</a
+			>
+		</div>
+	</div>
+</div>
