@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Campgrounds = require("./models/campgrounds");
 const methodOverride = require("method-override");
+const ejsmate = require("ejs-mate")
 
 const app = express();
 const port = 3001;
@@ -12,6 +13,7 @@ mongoose
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "ejs");
 
+app.engine("ejs", ejsmate)
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 

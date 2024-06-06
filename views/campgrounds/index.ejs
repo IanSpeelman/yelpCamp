@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-            <div>
-                  <a href="/campgrounds">All campground</a>
-                  <a href="/campgrounds/new">New campground</a>
-            </div>
+<%- layout("./layout/boilerplate") %>
 		<ul>
 			<% campgrounds.forEach(campground => { %>
 			<li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
 			<% }) %>
 		</ul>
-	</body>
-</html>

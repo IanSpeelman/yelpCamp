@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>New</title>
-	</head>
-	<body>
-		<div>
-			<a href="/campgrounds">All campgrounds</a>
-			<a href="/campgrounds/<%= campground._id %>">back to campground</a>
-		</div>
-		<form
-			action="/campgrounds/<%= campground._id %>?_method=put"
-			method="post">
-			<label for="name">name</label
-			><input
-				type="text"
-				name="campground[title]"
-				id="name"
-				value="<%= campground.title %>" />
-			<label for="location">location</label
-			><input
-				type="text"
-				name="campground[location]"
-				id="location"
-				value="<%= campground.location %>" />
-			<button>Add new campground</button>
-		</form>
-		<form
-			action="/campgrounds/<%= campground._id %>?_method=delete"
-			method="post">
-			<button>Delete campground</button>
-		</form>
-	</body>
-</html>
+<%- layout("./layout/boilerplate") %>
+<form action="/campgrounds/<%= campground._id %>?_method=put" method="post">
+	<label for="name">name</label
+	><input
+		type="text"
+		name="campground[title]"
+		id="name"
+		value="<%= campground.title %>" />
+	<label for="location">location</label
+	><input
+		type="text"
+		name="campground[location]"
+		id="location"
+		value="<%= campground.location %>" />
+	<button>Add new campground</button>
+</form>
+<form action="/campgrounds/<%= campground._id %>?_method=delete" method="post">
+	<button>Delete campground</button>
+</form>
