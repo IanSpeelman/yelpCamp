@@ -28,9 +28,10 @@ app.get("/campgrounds/new", (req, res) => {
 	res.render("campgrounds/new");
 });
 app.post("/campgrounds", async (req, res) => {
-	const { title, location } = req.body.campground;
-	const newCampground = new Campgrounds({ title, location });
+	const { title, location, description, price, image} = req.body.campground;
+	const newCampground = new Campgrounds({ title, location, description, price, image });
 	newCampground.save();
+
 	res.redirect(`/campgrounds/${newCampground._id}`);
 });
 app.get("/campgrounds/:id", async (req, res) => {
