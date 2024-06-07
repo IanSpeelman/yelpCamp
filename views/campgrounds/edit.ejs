@@ -1,12 +1,14 @@
 <%- layout("./layout/boilerplate") %>
 <div class="container">
 	<form
-		class="col-6 mx-auto"
+novalidate
+		class="col-6 mx-auto needs-validation"
 		action="/campgrounds/<%= campground._id %>?_method=put"
 		method="post">
 		<div class="mb-3">
 			<label for="campground[title]" class="form-label">Title</label>
 			<input
+			required
 				type="text"
 				class="form-control"
 				id="campground[title]"
@@ -16,6 +18,7 @@
 		<div class="mb-3">
 			<label for="campground[location]" class="form-label">Location</label>
 			<input
+			required
 				type="text"
 				class="form-control"
 				id="campground[location]"
@@ -25,6 +28,7 @@
 		<div class="mb-3">
 			<label for="campground[image]" class="form-label">Image</label>
 			<input
+			required
 				type="text"
 				class="form-control"
 				id="campground[image]"
@@ -36,6 +40,7 @@
 				>Description</label
 			>
 			<textarea
+			required
 				type="text"
 				class="form-control"
 				id="campground[description]"
@@ -47,6 +52,7 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="price">€</span>
 			<input
+			required
 				type="number"
 				step="0.01"
 				class="form-control"
