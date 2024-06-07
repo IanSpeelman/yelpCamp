@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Campground = require("../models/campgrounds");
 const cities = require("./cities");
 const { descriptors, places } = require("./seedHelpers");
+const {v4: uuid} = require("uuid")
 
 mongoose
 	.connect("mongodb://localhost:27017/yelp-camp")
@@ -22,6 +23,7 @@ const seed = async () => {
 	await Campground.deleteMany({});
 	for (let i = 0; i < 50; i++) {
 		const c = new Campground({
+			_id: uuid(),
 			location: randomLocation(cities),
 			title: `${randomTitle(descriptors)} ${randomTitle(descriptors)}`,
 			price: randomPrice().toFixed(2),
