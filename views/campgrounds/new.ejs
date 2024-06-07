@@ -1,35 +1,53 @@
 <%- layout("./layout/boilerplate") %>
 <div class="container">
-	<form class="col-6 mx-auto needs-validation" action="/campgrounds" method="post" novalidate>
+	<form
+		class="col-6 mx-auto needs-validation"
+		action="/campgrounds"
+		method="post"
+		novalidate>
 		<div class="mb-3">
-			<label for="campground[title]" class="form-label">Title</label>
+			<label
+				for="campground[title]"
+				class="form-label"
+				>Title</label
+			>
 			<input
-			required
+				required
 				type="text"
 				class="form-control"
 				id="campground[title]"
 				name="campground[title]" />
 		</div>
 		<div class="mb-3">
-			<label for="campground[location]" class="form-label">Location</label>
+			<label
+				for="campground[location]"
+				class="form-label"
+				>Location</label
+			>
 			<input
-			required
+				required
 				type="text"
 				class="form-control"
 				id="campground[location]"
 				name="campground[location]" />
 		</div>
 		<div class="mb-3">
-			<label for="campground[image]" class="form-label">Image</label>
+			<label
+				for="campground[image]"
+				class="form-label"
+				>Image</label
+			>
 			<input
-			required
+				required
 				type="text"
 				class="form-control"
 				id="campground[image]"
 				name="campground[image]" />
 		</div>
 		<div class="mb-3">
-			<label for="campground[description]" class="form-label"
+			<label
+				for="campground[description]"
+				class="form-label"
 				>Description</label
 			><textarea
 				required
@@ -40,9 +58,13 @@
 			</textarea>
 		</div>
 		<div class="input-group mb-3">
-			<span class="input-group-text" id="price">€</span>
+			<span
+				class="input-group-text"
+				id="price"
+				>€</span
+			>
 			<input
-			required
+				required
 				type="number"
 				step="0.01"
 				class="form-control"
@@ -51,6 +73,10 @@
 				aria-describedby="price"
 				name="campground[price]" />
 		</div>
-		<button type="submit" class="btn btn-success">Submit</button>
+		<button
+			type="submit"
+			class="btn btn-success"
+			>Submit</button
+		>
 	</form>
 </div>
