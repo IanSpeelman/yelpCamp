@@ -2,7 +2,10 @@
 <div class="row">
 	<% campgrounds.forEach(campground => { %>
 	<div class="col-4">
-		<img src="<%= campground.image %>" class="img-fluid" alt="" />
+		<img
+			src="<%= campground.image %>"
+			class="img-fluid"
+			alt="" />
 	</div>
 	<div class="col-8 card">
 		<h1 class="card-title"><%= campground.title %></h1>
